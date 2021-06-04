@@ -1,0 +1,33 @@
+@page "/"
+
+@code{
+
+    Random random = new Random();
+    int num;
+    int balance = 0;
+
+    string numOutcome;
+
+    private void numberRoll() {
+
+        balance -= 1;
+
+        num = random.Next(1, 11);
+
+        if (num == 10 || num == 1 || num == 5) {
+            numOutcome = ("good job, you got a " + num);
+            balance += 10;
+        }
+        else {
+            numOutcome = ("soz mate, you got a " + num);
+        }
+    }
+}
+<h1>Casino</h1>
+
+<h2>Balance:</h2>
+<p>$@balance</p>
+
+<button @onclick="numberRoll">Click to roll</button>
+<p>@numOutcome</p>
+
