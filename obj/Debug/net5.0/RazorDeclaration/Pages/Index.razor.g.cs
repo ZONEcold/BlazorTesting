@@ -95,23 +95,40 @@ using BlazorTesting.Shared;
       
 
     Random random = new Random();
-    int num;
-    int balance = 0;
+    int oddsNum;
+    int fiftyFiftyNum;
 
-    string numOutcome;
+    int balance = 15;
+
+    string oddsNumOutcome;
+    string fiftyFiftyOutcome;
 
     private void numberRoll() {
 
         balance -= 1;
 
-        num = random.Next(1, 11);
+        oddsNum = random.Next(1, 11);
 
-        if (num == 10 || num == 1 || num == 5) {
-            numOutcome = ("good job, you got a " + num);
-            balance += 10;
+        if (oddsNum == 10 || oddsNum == 1 || oddsNum == 5) {
+            oddsNumOutcome = ("good job, you got a " + oddsNum);
+            balance += 5;
         }
         else {
-            numOutcome = ("soz mate, you got a " + num);
+            oddsNumOutcome = ("soz mate, you got a " + oddsNum);
+        }
+    }
+
+    private void fiftyFiftyRoll() {
+        balance -= 10;
+
+        fiftyFiftyNum = random.Next(1, 3);
+
+        if (fiftyFiftyNum == 1) {
+            fiftyFiftyOutcome = ("good job, you got a " + fiftyFiftyNum);
+            balance += 20;
+        }
+        else {
+            fiftyFiftyOutcome = ("soz mate, you got a " + fiftyFiftyNum);
         }
     }
 
